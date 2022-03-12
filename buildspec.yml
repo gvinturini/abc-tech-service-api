@@ -10,7 +10,7 @@ phases:
   post_build:
     commands:
       - echo "Movendo os arquivos quie seráo feitos upload"
-      - mv targer/*.war ./ROOT.war
+      - mv target/*.war ./ROOT.war
 artifacts:
   files:
     - ROOT.war
