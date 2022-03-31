@@ -1,0 +1,30 @@
+package br.com.fiap.abctechservice.application.Impl;
+
+import br.com.fiap.abctechservice.application.AssistanceApplication;
+import br.com.fiap.abctechservice.application.dto.AssistDTO;
+import br.com.fiap.abctechservice.model.Assistance;
+import br.com.fiap.abctechservice.service.AssistanceService;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class AssistanceApplicationImpl implements AssistanceApplication {
+
+    private final AssistanceService assistanceService;
+
+    public AssistanceApplicationImpl(
+            @Autowired
+            AssistanceService assistanceService
+    ) {
+        this.assistanceService = assistanceService;
+    }
+    @Override
+    public List<AssistDTO> getAssists() {
+        List<Assistance> listAssists = this.assistanceService.getAssistsList();
+
+        return listAssists.stream().map(
+                assistance -> new AssistDTO(assistance.getId(), assistance.getName(), assistance.getDescription()))
+                .collect(Collectors.toList());
+    }
+}
