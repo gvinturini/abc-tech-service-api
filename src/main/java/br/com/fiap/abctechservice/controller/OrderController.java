@@ -30,7 +30,7 @@ public class OrderController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping()
+    @GetMapping("/{id}")
     public ResponseEntity<OrderResponseDTO> getOrderById(Long id) {
         OrderResponseDTO orderResponseDTO =  this.orderApplication.getOrder(id);
         return ResponseEntity.ok(orderResponseDTO);
