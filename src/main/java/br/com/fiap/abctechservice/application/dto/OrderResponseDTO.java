@@ -1,33 +1,22 @@
 package br.com.fiap.abctechservice.application.dto;
 
+import br.com.fiap.abctechservice.model.Assistance;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class OrderDTO {
+public class OrderResponseDTO {
 
-    @NotNull
-    @Positive
+    private Long id;
     private Long operatorId;
-
-    @NotEmpty
-    @NotNull
-    private List<Long> services;
-
-    @Valid
+    private List<AssistDTO> services;
     private OrderLocationDTO start;
-
-    @Valid
     private OrderLocationDTO end;
 }
