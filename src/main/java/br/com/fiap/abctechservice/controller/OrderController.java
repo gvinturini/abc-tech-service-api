@@ -2,12 +2,10 @@ package br.com.fiap.abctechservice.controller;
 
 import br.com.fiap.abctechservice.application.OrderApplication;
 import br.com.fiap.abctechservice.application.dto.OrderDTO;
+import br.com.fiap.abctechservice.application.dto.OrderResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -30,6 +28,12 @@ public class OrderController {
     ) throws Exception {
         orderApplication.createOrder(orderDto);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping()
+    public ResponseEntity<OrderResponseDTO> getOrderById(Long id) {
+        OrderResponseDTO orderResponseDTO =  this.orderApplication.getOrder(id);
+        return ResponseEntity.ok(orderResponseDTO);
     }
 
 }
