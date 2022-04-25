@@ -17,9 +17,6 @@ import java.util.Date;
 public class OrderLocationDTO {
 
     private Double latitude;
-
     private Double longitude;
-
-    @PastOrPresent
     private Date datetime;
 }

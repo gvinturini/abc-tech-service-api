@@ -40,14 +40,14 @@ public class OrderServiceImpl implements OrderService {
         if (!order.hasMinAssists()){
             throw new MinAssistsRequiredException("Array de assistências inválido", "Por favor, envie ao menos uma assistência");
         } else if (order.exceedsMaxAssists()){
-            throw new MaxAssistsException("Assay de assistências inválido", "O número máximo de assistências é 15");
+            throw new MaxAssistsException("Array de assistências inválido", "O número máximo de assistências é 15");
         }
 
         orderRepository.save(order);
     }
 
     @Override
-    public List<Order> listOrderByOperator(Long operadorId) {
+    public List<Order> listOrderByOperator(Long operatorId) {
         return null;
     }
 

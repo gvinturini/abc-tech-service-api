@@ -25,9 +25,6 @@ public class OrderDTO {
     @NotNull
     private List<Long> services;
 
-    @Valid
     private OrderLocationDTO start;
-
-    @Valid
     private OrderLocationDTO end;
 }

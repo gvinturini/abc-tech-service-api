@@ -29,11 +29,11 @@ public class Order {
     private List<Assistance> services;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "start_order_location_id")
+    @JoinColumn(name = "start_order_location_id", foreignKey = @ForeignKey(name = "FK_start_order_id"))
     private OrderLocation startOrderLocation;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "end_order_location_id")
+    @JoinColumn(name = "end_order_location_id", foreignKey = @ForeignKey(name = "FK_end_order_id"))
     private OrderLocation endOrderLocation;
 
     public boolean hasMinAssists() {
