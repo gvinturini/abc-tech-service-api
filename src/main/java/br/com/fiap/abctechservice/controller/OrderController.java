@@ -21,7 +21,7 @@ public class OrderController {
     }
 
     @PostMapping()
-    public ResponseEntity createOrder(
+    public ResponseEntity<Void> createOrder(
             @Valid
             @RequestBody
                     OrderDTO orderDto
